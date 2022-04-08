@@ -1,0 +1,4 @@
+
+class ItemNaoExisteException(Exception):
+    pass
+
