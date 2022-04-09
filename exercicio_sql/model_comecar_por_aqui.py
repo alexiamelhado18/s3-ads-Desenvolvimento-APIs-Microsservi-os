@@ -116,11 +116,9 @@ def heroi_pronto_por_nome(nomeHeroi):
         rs = con.execute(statement, heroi=nomeHeroi) 
         heroi = rs.fetchone()
         vida = (heroi.fisico * 10)
-        list_heroi = heroi
-        # list_heroi.append(vida)
-        print(list_heroi)
-        print(vida)
-        return dict(list_heroi)
+        heroi2 = dict(heroi)
+        heroi2['vida'] = vida
+        return heroi2
 '''
 Ex5 (ainda no model.py)
 Melhore sua funcao heroi_pronto_por_nome. Agora, o dicionario também
@@ -151,7 +149,11 @@ Repare que a funcao recebe dicionários, e nem fala com o SQL
 
 
 def atacar_com_fisico(atacante, defensor):
-   pass 
+
+    defensor['vida'] = defensor['vida'] - atacante['fisico']
+    # print(defensor)
+
+
 
 '''
 Opcional - não testado
@@ -177,7 +179,11 @@ Repare que a vida nunca pode ficar negativa. O mínimo é 0.
 (fazer a funcao abaixo) - ela recebe dicionarios e nem fala com o sql
 '''
 def atacar_com_magia(atacante, defensor):
-    pass
+    defensor['vida'] = defensor['vida'] - atacante['magia']
+    if defensor['vida'] < 0:
+        defensor['vida'] = 0        
+
+
 
 '''
 Parte 2: Consultas mais complexas
