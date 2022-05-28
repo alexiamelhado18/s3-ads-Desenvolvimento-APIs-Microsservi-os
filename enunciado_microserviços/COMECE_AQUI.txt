@@ -1,0 +1,37 @@
+
+Nessa atividade, temos 2 servidores, controle_pessoas e sistema atividades
+
+Sistema atividades fornece lições como a abaixo
+{
+            'id_atividade':1,
+            'id_disciplina':1,
+            'enunciado': 'crie um app de todo em flask',
+            'respostas': [
+                {'id_aluno': 1, 'resposta':'todo.py', 'nota':9},
+                {'id_aluno': 2, 'resposta':'todo.zip.rar'},
+                {'id_aluno': 4, 'resposta':'todo.zip', 'nota':10}
+                ]
+},
+
+controle_pessoas sabe qual o professor que leciona cada disciplina
+{'nome':"apis e microservicos", 'id_disciplina':1, 'alunos':[1,2], 'professores':[1], 'publica': False},
+
+Quando eu quiser que um professor corrija uma atividade,
+o sistema_atividades vai ter que interagir com o controle_pessoas,
+para saber se esse professor realmente leciona essa disciplina
+
+Isso vai acontecer assim: sistema_atividades fez import no acesso.py,
+o acesso.py faz uma requisição HTTP para o controle_pessoas
+
+ Flask                  requests        python
+controle_pessoas <----------HTTP,json-------> acesso.py <----------> sistema_atividades
+                                                         import
+
+
+
+Como faço isso??
+a atividade se inicia no controle pessoas. 
+Depois vai para o acesso.py e depois para o sistema atividades
+vá lendo as instrucoes em cada arquivo
+
+                 
